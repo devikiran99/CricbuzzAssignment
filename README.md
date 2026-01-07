@@ -2,7 +2,7 @@
 
     Language: Kotlin 
     
-    UI developemnt: Jetpack compose
+    UI development: Jetpack compose
     
     Networking: Retrofit
     
