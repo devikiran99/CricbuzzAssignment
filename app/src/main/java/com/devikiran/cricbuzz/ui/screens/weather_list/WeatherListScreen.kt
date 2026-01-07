@@ -26,7 +26,9 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.devikiran.cricbuzz.data.local.module.ForecastEntity
 import com.devikiran.cricbuzz.ui.screens.WeatherItem
 
@@ -44,12 +46,26 @@ fun WeatherListScreen(viewModel: WeatherListViewModel) {
             modifier = Modifier.fillMaxSize(),
             contentAlignment = Alignment.Center
         ) {
-            Text("No saved locations")
+            Text(
+                text = "No saved locations!!. Please search for specified location weather data..",
+                textAlign = TextAlign.Center,
+                fontSize = 18.sp,
+                modifier = Modifier.padding(horizontal = 16.dp)
+            )
         }
     } else {
         LazyColumn(
             modifier = Modifier.padding(16.dp)
         ) {
+            item {
+                Text(
+                    text = "Weather List",
+                    style = MaterialTheme.typography.titleMedium,
+                    fontSize = 24.sp,
+                    modifier = Modifier.padding(start = 8.dp, bottom = 24.dp)
+                )
+            }
+
             state.locations.forEach { (city, forecasts) ->
                 item {
                     WeatherListCard(
